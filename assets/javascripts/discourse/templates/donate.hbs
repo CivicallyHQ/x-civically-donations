@@ -1,0 +1,34 @@
+{{#d-section pageClass="donate"}}
+  <div class='container'>
+    <div class='contents clearfix body-page'>
+
+      {{#unless site.mobileView}}
+        {{static-image name='owl'}}
+      {{/unless}}
+
+      <ul class="nav-pills">
+        <li class="nav-item-about">{{#link-to 'about'}}{{i18n 'about.simple_title'}}{{/link-to}}</li>
+        <li class="nav-item-team">{{#link-to 'team'}}{{i18n 'team'}}{{/link-to}}</li>
+        <li class="nav-item-donate">{{#link-to 'donate' class="active"}}{{i18n 'discourse_donations.title'}}{{/link-to}}</li>
+        {{#if faqOverriden}}
+          <li class="nav-item-guidelines">{{#link-to 'guidelines'}}{{i18n 'guidelines'}}{{/link-to}}</li>
+          <li class="nav-item-faq">{{#link-to 'faq'}}{{i18n 'faq'}}{{/link-to}}</li>
+        {{else}}
+          <li class="nav-item-faq">{{#link-to 'faq'}}{{i18n 'faq'}}{{/link-to}}</li>
+        {{/if}}
+        <li class="nav-item-tos">{{#link-to 'tos'}}{{i18n 'terms_of_service'}}{{/link-to}}</li>
+        <li class="nav-item-privacy">{{#link-to 'privacy'}}{{i18n 'privacy'}}{{/link-to}}</li>
+      </ul>
+
+      <div class="donations-page-description">
+        {{cook-text siteSettings.discourse_donations_page_description}}
+      </div>
+
+      <div class="donations-page-payment">
+        {{stripe-card}}
+      </div>
+
+      {{d-button action='contact' label='landing.contact.title' class='btn-primary btn-large'}}
+    </div>
+  </div>
+{{/d-section}}
